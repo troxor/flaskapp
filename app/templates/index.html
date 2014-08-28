@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<title>nar.li - {% block title %} aoeuaoeu {% endblock %}</title>
+	<!-- Customize at http://twitter.github.io/bootstrap/customize.html#variables -->
+	<link href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+	<!-- <link href="{{ url_for('static', filename='font-awesome/css/font-awesome.css') }}" rel="stylesheet"> -->
+	<!-- <link href="{{ url_for('static', filename='modernizr/js/modernizr-latest.js') }}" rel="stylesheet"> -->
+
+	<link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Metrophobic'>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+
+	<style>
+		h3.muted {
+			font-family: 'Tangerine', serif;
+			font-size: 48px;
+		}
+		body {
+	//		background-color: #333;
+	//		color: #dfd;
+			font-family: Metrophobic, Arial, serif;
+			font-weight: 400; 
+		}
+	</style>
+</head>
+
+<body class="container">
+	<div class = "container-narrow">
+		<div class="masthead">
+		<ul class="nav nav-pills pull-right">
+			<li><a href="/">Home</a></li>
+			<li{% if '/about' in request.path %} class="active"{% endif %}><a href="/about">About</a></li>
+			<li{% if '/contact' in request.path %} class="active"{% endif %}><a href="/contact">Contact</a></li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					Dropdown
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li>
+					<!-- links -->
+				</ul>
+			</li>
+			<li><a class="btn btn-medium btn-navbar" href="#">Sign up today</a></li>
+		</ul>
+		<h3 class="muted">nar.li</h3>
+	</div>
+
+	<hr>
+
+	{% block body %}{% endblock %}
+
+	<hr>
+
+	<div class="footer">
+	<p>This page brought to you by {{ hostname }}</p>
+	</div>
+
+</body>
+</html>

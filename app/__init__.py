@@ -5,6 +5,7 @@ import socket
 app = Flask(__name__)
 
 app.config.from_object('config')
+app.config.from_envvar('FLASKAPP_SETTINGS', silent=True)
 
 @app.route('/')
 def show_index():

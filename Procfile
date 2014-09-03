@@ -1,1 +1,1 @@
-web: python run.py 3002
+web: python run.py

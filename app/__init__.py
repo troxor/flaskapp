@@ -1,6 +1,7 @@
 
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 import socket
+
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 
 app = Flask(__name__)
 
@@ -31,27 +32,9 @@ def show_test():
     page = page + dir(request)
     return "<br /><br/>".join(page)
 
-#class ChatWebSocket(tornado.websocket.WebSocketHandler):
-#    clients = []
-#    
-#    def open(self):
-#        ChatWebSocket.clients.append(self)
-#
-#    def on_message(self, message):
-#        for client in ChatWebSocket.clients:
-#            client.write_message(message)
-#
-#    def on_close(self):
-#        ChatWebSocket.clients.remove(self)
-
-#tornado_app = tornado.web.Application([
-#    (r'/websocket', ChatWebSocket),
-#    (r'.*', tornado.web.FallbackHandler, 
-#        {'fallback': tornado.wsgi.WSGIContainer(app)})
-#])
-
-#tornado_app.listen(5000)
-#tornado.ioloop.IOLoop.instance().start()
+@app.route('/status')
+def show_status():
+    return "OK"
 
 if __name__ == '__main__':
     print("hello")

@@ -1,10 +1,13 @@
-
 import os
 import socket
 
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 
+from redis import Redis
+
 app = Flask(__name__)
+
+redis = Redis(host='redis', port=6379)
 
 app.config.from_object('config')
 app.config.from_envvar('FLASKAPP_SETTINGS', silent=True)
@@ -23,6 +26,11 @@ def show_about():
 def show_contact():
     hostname = socket.gethostname()
     return render_template('contact.html', **locals())
+
+@app.route('/redistest')
+def show_redistest():
+    redis.incr('hits')
+    return 'Redis OK! It has been tested %s times.' % redis.get('hits')
 
 @app.route('/test')
 def show_test():

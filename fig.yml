@@ -1,0 +1,11 @@
+web:
+  build: .
+  command: python2 flaskapp.py
+  ports:
+    - "3002:3002"
+  links:
+    - redis
+
+redis:
+  image: redis
+

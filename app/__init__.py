@@ -12,19 +12,23 @@ redis = Redis(host='redis', port=6379)
 app.config.from_object('config')
 app.config.from_envvar('FLASKAPP_SETTINGS', silent=True)
 
+
 @app.route('/')
 def show_index():
     hostname = socket.gethostname()
+    site-hostname = os.environ['SITE_HOSTNAME']
     return render_template('home.html', **locals())
 
 @app.route('/about')
 def show_about():
     hostname = socket.gethostname()
+    site-hostname = os.environ['SITE_HOSTNAME']
     return render_template('about.html', **locals())
 
 @app.route('/contact')
 def show_contact():
     hostname = socket.gethostname()
+    site-hostname = os.environ['SITE_HOSTNAME']
     return render_template('contact.html', **locals())
 
 @app.route('/redistest')

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>nar.li - {% block title %} aoeuaoeu {% endblock %}</title>
+	<title>{{ site-hostname }} - {% block title %} aoeuaoeu {% endblock %}</title>
 	<!-- Customize at http://twitter.github.io/bootstrap/customize.html#variables -->
 	<link href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 	<!-- <link href="{{ url_for('static', filename='font-awesome/css/font-awesome.css') }}" rel="stylesheet"> -->
@@ -12,13 +12,11 @@
 
 	<style>
 		h3.muted {
-			font-family: 'Tangerine', serif;
+			font-family: Tangerine, serif;
 			font-size: 48px;
 		}
 		body {
-	//		background-color: #333;
-	//		color: #dfd;
-			font-family: Metrophobic, Arial, serif;
+			font-family: Metrophobic, Arial, sans-serif;
 			font-weight: 400; 
 		}
 	</style>
@@ -44,7 +42,7 @@
 			</li>
 			<li><a class="btn btn-medium btn-navbar" href="#">Sign up today</a></li>
 		</ul>
-		<h3 class="muted">nar.li</h3>
+		<h3 class="muted">{{ site-hostname }}</h3>
 	</div>
 
 	<hr>

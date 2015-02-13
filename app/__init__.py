@@ -7,7 +7,10 @@ from redis import Redis
 
 app = Flask(__name__)
 
-redis = Redis(host='redis', port=6379)
+redishost = os.getenv('REDISHOST')
+redisport = os.getenv('REDISPORT')
+
+redis = Redis(host=redishost, port=redisport)
 
 app.config.from_object('config')
 app.config.from_envvar('FLASKAPP_SETTINGS', silent=True)

@@ -34,23 +34,22 @@ def show_contact():
     site_hostname = os.environ['SITE_HOSTNAME']
     return render_template('contact.html', **locals())
 
-@app.route('/redistest')
-def show_redistest():
-    redis.incr('hits')
-    return 'Redis OK! It has been tested %s times.' % redis.get('hits')
-
 @app.route('/test')
 def show_test():
     page = []
-    page.append( str(request.view_args) )
-    page.append( str(request.headers) )
-    page.append( str(request.environ) )
+    page.append( str(request.view_args)+"<hr />" )
+    page.append( str(request.headers)+"<hr />" )
+    page.append( str(request.environ)+"<hr />" )
+
+    try:
+        redis.incr('testhits')
+        page.append('Redis OK!, tested %s times!' % redis.get('testhits'))
+    except:
+        page.append('Redis FAIL')
+    page.append("<hr />")
+
     page = page + dir(request)
     return "<br /><br/>".join(page)
-
-@app.route('/status')
-def show_status():
-    return "OK"
 
 if __name__ == '__main__':
     print("hello")

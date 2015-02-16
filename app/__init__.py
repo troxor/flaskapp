@@ -5,10 +5,25 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 
 from redis import Redis
 
+
 app = Flask(__name__)
 
-redishost = os.getenv('REDISHOST')
-redisport = os.getenv('REDISPORT')
+# Default values come from config.py
+app.config.from_object('config') # some defaults
+
+# Merge OS environment into app.config, overriding config.py
+# This might end up being a dumb idea, we'll see
+for i in os.environ:
+    app.config[i] = os.environ[i]
+
+if 'REDISHOST' in app.config:
+    redishost = app.config['REDISHOST'] 
+
+if 'REDISPORT' in app.config:
+    redisport = app.config['REDISPORT'] or 6379
+
+if app.config['DEBUG']:
+    print app.config
 
 redis = Redis(host=redishost, port=redisport)
 

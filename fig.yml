@@ -1,11 +1,17 @@
 web:
   build: .
-  command: python2 flaskapp.py
+  command: honcho start web
+  environment:
+    PYTHONUNBUFFERED: 1
+    REDISHOST: cache
+    REDISPORT: 6379
+    PORT: 3000
+    DEBUG: True
   ports:
-    - "3002:3002"
+    - "3000:3000"
   links:
-    - redis
+    - cache
 
-redis:
+cache:
   image: redis
 

@@ -1,10 +1,11 @@
 Boring Flask App!
 =================
 
-    $ vim .env
+    $ cp .env.example .env ; vim .env
     $ pip install -r requirements.txt
     $ honcho start
 
 or
 
     $ fig up
+

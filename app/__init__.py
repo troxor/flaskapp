@@ -1,10 +1,10 @@
+from __future__ import print_function
+
 import os
 import socket
 
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
-
 from redis import Redis
-
 
 app = Flask(__name__)
 
@@ -23,7 +23,7 @@ if 'REDISPORT' in app.config:
     redisport = app.config['REDISPORT'] or 6379
 
 if app.config['DEBUG']:
-    print app.config
+    print(app.config)
 
 redis = Redis(host=redishost, port=redisport)
 

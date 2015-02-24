@@ -17,7 +17,7 @@ for i in os.environ:
     app.config[i] = os.environ[i]
 
 if 'REDISHOST' in app.config:
-    redishost = app.config['REDISHOST'] 
+    redishost = app.config['REDISHOST']
 
 if 'REDISPORT' in app.config:
     redisport = app.config['REDISPORT'] or 6379

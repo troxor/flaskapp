@@ -2,3 +2,4 @@ flask
 honcho
 redis
 six
+tornado

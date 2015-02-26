@@ -1,6 +1,6 @@
 web:
   build: .
-  command: honcho start web
+  command: honcho start wsgi
   environment:
     PYTHONUNBUFFERED: 1
     REDISHOST: cache

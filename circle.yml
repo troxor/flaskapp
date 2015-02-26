@@ -1,0 +1,13 @@
+general:
+  build_dir: .
+
+checkout:
+  pre:
+  post:
+    - cp .env.example .env
+    - sed -i'' 's/example.com/trox.cat/g'
+
+test:
+  override:
+    - pip install -r requirements.txt
+    - honcho start

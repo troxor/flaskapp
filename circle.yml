@@ -9,5 +9,4 @@ checkout:
 
 test:
   override:
-    - pip install -r requirements.txt
-    - honcho start
+    - python -m flaskapp.test.test_index

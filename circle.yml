@@ -2,12 +2,13 @@ general:
   build_dir: .
 
 checkout:
-  pre:
   post:
     - cp .env.example .env
     - sed -i'' 's/example.com/trox.cat/g'
 
+dependencies:
+  post:
+    - pip install -r requirements.txt
 test:
   override:
-    - pip install -r requirements.txt
     - honcho start

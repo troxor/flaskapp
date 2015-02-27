@@ -16,11 +16,14 @@ Getting Started
 ---------------
 
 ::
-    $ cp .env.example .env ; vim .env
-    $ pip install -r requirements.txt
-    $ honcho start wsgi
+
+     $ cp .env.example .env ; vim .env
+     $ pip install -r requirements.txt
+     $ honcho start wsgi
 
 or
+
+::
 
     $ fig up
 

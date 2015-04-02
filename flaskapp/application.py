@@ -29,7 +29,6 @@ if app.config['DEBUG']:
 redis = Redis(host=redishost, port=redisport)
 
 
-
 @app.route('/')
 def show_index():
     hostname = socket.gethostname()
@@ -52,8 +51,8 @@ def show_contact():
 def show_test():
     page = []
     page.append( str(request.view_args)+"<hr />" )
-    page.append( str(request.headers)+"<hr />" )
-    page.append( str(request.environ)+"<hr />" )
+    page.append( str(request.headers)+"<hr />"   )
+    page.append( str(request.environ)+"<hr />"   )
 
     try:
         redis.incr('testhits')

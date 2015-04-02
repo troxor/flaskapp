@@ -1,2 +1,2 @@
 web: python -m flaskapp
-wsgi: python -m flaskapp.wsgi --logging=info
+wsgi: python -m flaskapp.wsgi

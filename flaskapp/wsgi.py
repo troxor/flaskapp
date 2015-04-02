@@ -5,7 +5,10 @@ import tornado.options
 
 from flaskapp.application import app
 
-tornado.options.parse_command_line()
-http_server = HTTPServer(WSGIContainer(app))
-http_server.listen(int(app.config['PORT']))
-IOLoop.instance().start()
+tr = WSGIContainer(app)
+
+if __name__ == "__main__":
+    tornado.options.parse_command_line()
+    http_server = HTTPServer(tr)
+    http_server.listen(int(app.config['PORT']))
+    IOLoop.instance().start()

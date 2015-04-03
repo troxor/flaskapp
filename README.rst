@@ -13,17 +13,44 @@ Requirements
 
 
 Getting Started
----------------
+===============
+
+Docker Quickstart
+-----------------
 
 ::
-
-     $ cp .env.example .env ; vim .env
-     $ pip install -r requirements.txt
-     $ honcho start wsgi
-
-or
-
-::
-
+    $ pip install fig
+    $ fig build
     $ fig up
+
+Configuration
+-------------
+
+Application is configured via environment variables. Priority:
+
+1. (honcho) .env file
+2. cmdline environment vars
+3. (fig) fig.yml
+4. Hardcoded bare minimum vars in config.py
+
+::
+
+    $ cp .env.example .env ; vim .env
+    $ pip install -r requirements.txt
+
+
+Running
+-------
+::
+    $ honcho start web
+
+or 
+
+::
+    $ python -m flaskapp
+
+::
+
+    Deploy under a WSGI server
+    $ python -m flaskapp.wsgi
 

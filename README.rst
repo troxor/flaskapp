@@ -19,9 +19,9 @@ Docker Quickstart
 -----------------
 
 ::
-    $ pip install fig
-    $ fig build
-    $ fig up
+    $ pip install docker-compose
+    $ docker-compose build
+    $ docker-compose up
 
 Configuration
 -------------
@@ -30,7 +30,7 @@ Application is configured via environment variables. Priority:
 
 1. (honcho) .env file
 2. cmdline environment vars
-3. (fig) fig.yml
+3. docker compose vars
 4. Hardcoded bare minimum vars in config.py
 
 ::
